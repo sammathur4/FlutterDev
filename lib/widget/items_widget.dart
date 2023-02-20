@@ -1,31 +1,31 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 import '../models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
-
   final Item item;
-  const ItemWidget({Key  ? key, required this.item}) : assert (item!=null) ,super(key: key);
+  const ItemWidget({Key? key, required this.item})
+      : assert(item != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap:(){
+        onTap: () {
           print("${item.name}");
-        }
-        ,
+        },
         leading: Image.network(item.image),
         title: Text(item.name),
         subtitle: Text(item.desc),
-        trailing: Text("\$${item.price}",
+        trailing: Text(
+          "\$${item.price}",
           textScaleFactor: 1.5,
-          style: TextStyle(
-            color: Colors.deepPurple,
-            fontWeight: FontWeight.bold
-          ),
+          style:
+              TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold),
         ),
-
       ),
     );
   }
